@@ -9,21 +9,21 @@
 <body>
   <!-- Menú hamburguesa -->
   <button class="menu-toggle">☰</button>
-  <div class="side-menu" id="sideMenu">
-    <a href="#">✅ Nova</a>
-    <a href="#">📁 Intercanvi</a>
-    <a href="#">🗂️ Per grup</a>
-    <a href="#">🔍 Filtres</a>
+  <div class="side-menu">
+    <span>✅ Nova</span>
+    <span>📁 Intercanvi</span>
+    <span>🗂️ Per grup</span>
+    <span>🔍 Filtres</span>
   </div>
 
-  <!-- Icona perfil petita -->
-  <div class="perfil-icon" onclick="mostrarPerfil()">
-    <img src="pcxs/avatar.jpg" alt="Avatar">
+  <!-- Foto de perfil petita -->
+  <div class="perfil-icon" id="perfilFoto">
+    <img src="pcxs/avatar.jpg" alt="Perfil">
   </div>
 
   <h1>K-POP</h1>
 
-  <!-- Categories -->
+  <!-- Categories i desplegables -->
   <div class="categories">
     <div class="dropdown bts">
       <button>BTS</button>
@@ -83,8 +83,8 @@
     </div>
   </div>
 
-  <!-- Galeria -->
-  <main class="grid" id="mainGrid">
+  <!-- Galeria de PCs -->
+  <main class="grid">
     <div class="card">
       <img src="pcxs/images.jpg" alt="Tzuyu PC" />
       <p>@tzuyu_stan</p>
@@ -95,66 +95,49 @@
     </div>
   </main>
 
-  <!-- Perfil -->
+  <!-- Secció de perfil (inicialment oculta) -->
   <section id="perfil" style="display: none;">
     <div class="perfil-container">
       <img src="pcxs/avatar.jpg" alt="Foto perfil" class="perfil-foto" />
       <h2 class="nom-usuari">@moomootrds</h2>
       <button class="pujar-btn">📤 Pujar nova PC</button><br>
-      <button class="tornar-btn" onclick="tornarInici()">🔙 Tornar a l'inici</button>
+      <button class="tornar-btn" id="tornarBtn">🔙 Tornar</button>
     </div>
   </section>
 
+  <!-- SCRIPT -->
   <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const sideMenu = document.getElementById('sideMenu');
+    const perfilBtn = document.getElementById('perfilFoto');
+    const perfilSection = document.getElementById('perfil');
+    const mainGrid = document.querySelector('.grid');
+    const categories = document.querySelector('.categories');
+    const hamburguesa = document.querySelector('.menu-toggle');
+    const sideMenu = document.querySelector('.side-menu');
+    const title = document.querySelector('h1');
 
+    perfilBtn.addEventListener('click', () => {
+      perfilSection.style.display = 'block';
+      mainGrid.style.display = 'none';
+      categories.style.display = 'none';
+      hamburguesa.style.display = 'none';
+      sideMenu.style.display = 'none';
+      title.style.display = 'none';
+    });
+
+    const tornarBtn = document.getElementById('tornarBtn');
+    tornarBtn.addEventListener('click', () => {
+      perfilSection.style.display = 'none';
+      mainGrid.style.display = 'flex';
+      categories.style.display = 'flex';
+      hamburguesa.style.display = 'block';
+      title.style.display = 'block';
+    });
+
+    // Menú hamburguesa toggle
+    const menuToggle = document.querySelector('.menu-toggle');
     menuToggle.addEventListener('click', () => {
       sideMenu.classList.toggle('active');
     });
-
-    const perfilSection = document.getElementById("perfil");
-    const mainGrid = document.getElementById("mainGrid");
-
-    function mostrarPerfil() {
-      perfilSection.style.display = "block";
-      mainGrid.style.display = "none";
-    }
-
-    function tornarInici() {
-      perfilSection.style.display = "none";
-      mainGrid.style.display = "flex";
-    }
-    <!DOCTYPE html>
-<html lang="ca">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El meu perfil</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <div class="perfil-container">
-    <img src="pcxs/avatar.jpg" alt="Foto perfil" class="perfil-foto" />
-    <h2 class="nom-usuari">@moomootrds</h2>
-    <button class="pujar-btn">📤 Pujar nova PC</button>
-  </div>
-
-  <h3 class="titol-seccio">Les meves PCs</h3>
-  <div class="grid">
-    <div class="card">
-      <img src="pcxs/images.jpg" alt="PC 1" />
-      <p>Tzuyu – Feel Special</p>
-    </div>
-    <div class="card">
-      <img src="pcxs/images.jpg" alt="PC 2" />
-      <p>Sana – Between 1&2</p>
-    </div>
-  </div>
-
-</body>
-</html>
   </script>
 </body>
 </html>
