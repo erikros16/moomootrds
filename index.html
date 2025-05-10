@@ -26,60 +26,117 @@
     <input type="text" placeholder="Cerca...">
   </div>
 
-  <div class="categories">
+   <div class="categories">
     <div class="dropdown bts">
       <button>BTS</button>
       <div class="dropdown-content">
-        <a href="#">RM</a><a href="#">Jin</a><a href="#">Suga</a>
-        <a href="#">J-Hope</a><a href="#">Jimin</a><a href="#">V</a><a href="#">Jungkook</a>
+        <a href="#">RM</a>
+        <a href="#">Jin</a>
+        <a href="#">Suga</a>
+        <a href="#">J-Hope</a>
+        <a href="#">Jimin</a>
+        <a href="#">V</a>
+        <a href="#">Jungkook</a>
       </div>
     </div>
     <div class="dropdown twice">
       <button>TWICE</button>
       <div class="dropdown-content">
-        <a href="#">Nayeon</a><a href="#">Jeongyeon</a><a href="#">Momo</a><a href="#">Sana</a>
-        <a href="#">Jihyo</a><a href="#">Mina</a><a href="#">Dahyun</a><a href="#">Chaeyoung</a><a href="#">Tzuyu</a>
+        <a href="#">Nayeon</a>
+        <a href="#">Jeongyeon</a>
+        <a href="#">Momo</a>
+        <a href="#">Sana</a>
+        <a href="#">Jihyo</a>
+        <a href="#">Mina</a>
+        <a href="#">Dahyun</a>
+        <a href="#">Chaeyoung</a>
+        <a href="#">Tzuyu</a>
       </div>
     </div>
     <div class="dropdown aespa">
       <button>aespa</button>
       <div class="dropdown-content">
-        <a href="#">Karina</a><a href="#">Winter</a><a href="#">Giselle</a><a href="#">Ningning</a>
+        <a href="#">Karina</a>
+        <a href="#">Winter</a>
+        <a href="#">Giselle</a>
+        <a href="#">Ningning</a>
       </div>
     </div>
     <div class="dropdown skz">
       <button>Stray Kids</button>
       <div class="dropdown-content">
-        <a href="#">Bang Chan</a><a href="#">Lee Know</a><a href="#">Changbin</a>
-        <a href="#">Hyunjin</a><a href="#">Han</a><a href="#">Felix</a>
-        <a href="#">Seungmin</a><a href="#">I.N</a>
+        <a href="#">Bang Chan</a>
+        <a href="#">Lee Know</a>
+        <a href="#">Changbin</a>
+        <a href="#">Hyunjin</a>
+        <a href="#">Han</a>
+        <a href="#">Felix</a>
+        <a href="#">Seungmin</a>
+        <a href="#">I.N</a>
       </div>
     </div>
     <div class="dropdown others">
       <button>Others</button>
       <div class="dropdown-content">
-        <a href="#">IU</a><a href="#">NewJeans</a><a href="#">Seventeen</a>
+        <a href="#">IU</a>
+        <a href="#">NewJeans</a>
+        <a href="#">Seventeen</a>
       </div>
     </div>
   </div>
 
   <main class="grid">
     <div class="card">
-      <img src="pcxs/images.jpg" alt="Tzuyu PC">
+      <img src="pcxs/images.jpg" alt="Tzuyu PC" />
       <p>@tzuyu_stan</p>
     </div>
     <div class="card">
-      <img src="pcxs/images.jpg" alt="Sana PC">
-      <p>@sana_world</p>
+      <img src="pcxs/jihyo_1.jpg" alt="Jihyo PC" />
+      <p>@jihyo_power</p>
+    </div>
+    <div class="card">
+      <img src="pcxs/momo.jpg" alt="Momo PC" />
+      <p>@momo_black</p>
+    </div>
+    <div class="card">
+      <img src="pcxs/momo2.jpg" alt="Momo PC" />
+      <p>@momo_pose</p>
+    </div>
+    <div class="card">
+      <img src="pcxs/jihyo_2.jpg" alt="Jihyo PC" />
+      <p>@jihyo_goddess</p>
     </div>
   </main>
 
+  <section id="perfil" style="display: none;">
+    <div class="perfil-container">
+      <img src="pcxs/avatar.jpg" alt="Foto perfil" class="perfil-foto" />
+      <h2 class="nom-usuari">@moomootrds</h2>
+      <button class="pujar-btn">📤 Pujar nova PC</button>
+      <button class="tornar-btn" onclick="showMain()">🔙 Tornar</button>
+      <div class="grid">
+        <div class="card"><img src="pcxs/images.jpg"><p>@tzuyu_stan</p></div>
+        <div class="card"><img src="pcxs/jihyo_1.jpg"><p>@jihyo_power</p></div>
+        <div class="card"><img src="pcxs/momo.jpg"><p>@momo_black</p></div>
+        <div class="card"><img src="pcxs/momo2.jpg"><p>@momo_pose</p></div>
+        <div class="card"><img src="pcxs/jihyo_2.jpg"><p>@jihyo_goddess</p></div>
+      </div>
+    </div>
+  </section>
+
   <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const sideMenu = document.getElementById('sideMenu');
-    menuToggle.addEventListener('click', () => {
-      sideMenu.classList.toggle('active');
-    });
+    const perfilSection = document.getElementById("perfil");
+    const mainGrid = document.querySelector("main");
+
+    function showPerfil() {
+      perfilSection.style.display = "block";
+      mainGrid.style.display = "none";
+    }
+
+    function showMain() {
+      perfilSection.style.display = "none";
+      mainGrid.style.display = "flex";
+    }
   </script>
 </body>
 </html>
