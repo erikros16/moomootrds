@@ -7,92 +7,84 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="top-bar">
-      <input type="text" placeholder="🔍 Search" />
-      <div class="icons">
-        <button>＋</button>
-        <button>🔔</button>
-        <button>📩</button>
-        <button>⚙️</button>
-        <button>👤</button>
+  <!-- Menú hamburguesa -->
+  <button class="menu-toggle">☰</button>
+  <div class="side-menu" id="sideMenu">
+    <a href="#">✅ Nova</a>
+    <a href="#">📁 Intercanvi</a>
+    <a href="#">🗂️ Per grup</a>
+    <a href="#">🔍 Filtres</a>
+  </div>
+
+  <!-- Icona perfil petita -->
+  <div class="perfil-icon" onclick="mostrarPerfil()">
+    <img src="pcxs/avatar.jpg" alt="Avatar">
+  </div>
+
+  <h1>K-POP</h1>
+
+  <!-- Categories -->
+  <div class="categories">
+    <div class="dropdown bts">
+      <button>BTS</button>
+      <div class="dropdown-content">
+        <a href="#">RM</a>
+        <a href="#">Jin</a>
+        <a href="#">Suga</a>
+        <a href="#">J-Hope</a>
+        <a href="#">Jimin</a>
+        <a href="#">V</a>
+        <a href="#">Jungkook</a>
       </div>
     </div>
-
-    <h1>K-POP</h1>
-
-    <nav class="categories">
-      <div class="dropdown">
-        <button>BTS</button>
-        <div class="dropdown-content">
-          <a href="#">RM</a>
-          <a href="#">Jin</a>
-          <a href="#">Suga</a>
-          <a href="#">J-Hope</a>
-          <a href="#">Jimin</a>
-          <a href="#">V</a>
-          <a href="#">Jungkook</a>
-        </div>
+    <div class="dropdown twice">
+      <button>TWICE</button>
+      <div class="dropdown-content">
+        <a href="#">Nayeon</a>
+        <a href="#">Jeongyeon</a>
+        <a href="#">Momo</a>
+        <a href="#">Sana</a>
+        <a href="#">Jihyo</a>
+        <a href="#">Mina</a>
+        <a href="#">Dahyun</a>
+        <a href="#">Chaeyoung</a>
+        <a href="#">Tzuyu</a>
       </div>
-
-      <div class="dropdown">
-        <button>TWICE</button>
-        <div class="dropdown-content">
-          <a href="#">Nayeon</a>
-          <a href="#">Jeongyeon</a>
-          <a href="#">Momo</a>
-          <a href="#">Sana</a>
-          <a href="#">Jihyo</a>
-          <a href="#">Mina</a>
-          <a href="#">Dahyun</a>
-          <a href="#">Chaeyoung</a>
-          <a href="#">Tzuyu</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button>aespa</button>
-        <div class="dropdown-content">
-          <a href="#">Karina</a>
-          <a href="#">Winter</a>
-          <a href="#">Giselle</a>
-          <a href="#">Ningning</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button>Stray Kids</button>
-        <div class="dropdown-content">
-          <a href="#">Bang Chan</a>
-          <a href="#">Lee Know</a>
-          <a href="#">Changbin</a>
-          <a href="#">Hyunjin</a>
-          <a href="#">Han</a>
-          <a href="#">Felix</a>
-          <a href="#">Seungmin</a>
-          <a href="#">I.N</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button>Others</button>
-        <div class="dropdown-content">
-          <a href="#">IU</a>
-          <a href="#">NewJeans</a>
-          <a href="#">Seventeen</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="filters">
-      <span>✅ Nova</span>
-      <span>🔁 Intercanvi</span>
-      <span>📁 Per grup</span>
-      <button>Filtres</button>
     </div>
-  </header>
+    <div class="dropdown aespa">
+      <button>aespa</button>
+      <div class="dropdown-content">
+        <a href="#">Karina</a>
+        <a href="#">Winter</a>
+        <a href="#">Giselle</a>
+        <a href="#">Ningning</a>
+      </div>
+    </div>
+    <div class="dropdown skz">
+      <button>Stray Kids</button>
+      <div class="dropdown-content">
+        <a href="#">Bang Chan</a>
+        <a href="#">Lee Know</a>
+        <a href="#">Changbin</a>
+        <a href="#">Hyunjin</a>
+        <a href="#">Han</a>
+        <a href="#">Felix</a>
+        <a href="#">Seungmin</a>
+        <a href="#">I.N</a>
+      </div>
+    </div>
+    <div class="dropdown others">
+      <button>Others</button>
+      <div class="dropdown-content">
+        <a href="#">IU</a>
+        <a href="#">NewJeans</a>
+        <a href="#">Seventeen</a>
+      </div>
+    </div>
+  </div>
 
-  <main class="grid">
+  <!-- Galeria -->
+  <main class="grid" id="mainGrid">
     <div class="card">
       <img src="pcxs/images.jpg" alt="Tzuyu PC" />
       <p>@tzuyu_stan</p>
@@ -102,5 +94,37 @@
       <p>@sana_world</p>
     </div>
   </main>
+
+  <!-- Perfil -->
+  <section id="perfil" style="display: none;">
+    <div class="perfil-container">
+      <img src="pcxs/avatar.jpg" alt="Foto perfil" class="perfil-foto" />
+      <h2 class="nom-usuari">@moomootrds</h2>
+      <button class="pujar-btn">📤 Pujar nova PC</button><br>
+      <button class="tornar-btn" onclick="tornarInici()">🔙 Tornar a l'inici</button>
+    </div>
+  </section>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sideMenu = document.getElementById('sideMenu');
+
+    menuToggle.addEventListener('click', () => {
+      sideMenu.classList.toggle('active');
+    });
+
+    const perfilSection = document.getElementById("perfil");
+    const mainGrid = document.getElementById("mainGrid");
+
+    function mostrarPerfil() {
+      perfilSection.style.display = "block";
+      mainGrid.style.display = "none";
+    }
+
+    function tornarInici() {
+      perfilSection.style.display = "none";
+      mainGrid.style.display = "flex";
+    }
+  </script>
 </body>
 </html>
