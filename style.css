@@ -6,22 +6,21 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 /* FOTO PERFIL PETITA */
 .perfil-icon {
   position: absolute;
-  top: 50px;
-  right: 45px;
-  width: 90px;
-  height: 90px;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid white;
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
   cursor: pointer;
-  z-index: 999;
 }
 
 .perfil-icon img {
@@ -30,52 +29,13 @@ h1 {
   object-fit: cover;
 }
 
-/* MENÚ HAMBURGUESA */
-.menu-toggle {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: white;
-  border: none;
-  font-size: 22px;
-  border-radius: 8px;
-  padding: 8px 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.side-menu {
-  position: absolute;
-  top: 55px;
-  left: 10px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  padding: 10px 15px;
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 998;
-}
-
-.side-menu.active {
-  display: flex;
-}
-
-.side-menu a {
-  text-decoration: none;
-  font-weight: bold;
-  color: black;
-}
-
 /* CATEGORIES */
 .categories {
   display: flex;
   justify-content: center;
+  gap: 10px;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 20px 0;
+  margin: 30px 0 20px;
 }
 
 .dropdown {
@@ -102,7 +62,7 @@ h1 {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  min-width: 160px;
+  min-width: 140px;
   animation: desplegar 0.3s ease;
   overflow: hidden;
   z-index: 10;
@@ -131,20 +91,6 @@ h1 {
 .skz button { background-color: #ffe082; color: #333; }
 .others button { background-color: #aed581; color: #333; }
 
-/* BUSCADOR */
-.search-bar {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.search-bar input[type="text"] {
-  padding: 8px;
-  width: 60%;
-  max-width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
 /* GALERIA */
 .grid {
   display: flex;
@@ -168,9 +114,8 @@ h1 {
 }
 
 .card:hover {
-  transform: scale(1.05); /* pots fer 1.05 per notar més l’efecte */
+  transform: scale(1.05);
 }
-
 
 .card img {
   width: auto;
@@ -191,24 +136,17 @@ h1 {
 }
 
 .perfil-foto {
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  margin-bottom: 10px;
-}
-
-.nom-usuari {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .pujar-btn,
 .tornar-btn {
-  margin: 10px;
+  margin-top: 15px;
   padding: 10px 20px;
   border: none;
   border-radius: 12px;
@@ -226,5 +164,75 @@ h1 {
   to {
     opacity: 1;
     transform: scaleY(1);
+  }
+}
+
+/* MENÚ HAMBURGUESA */
+.menu-toggle {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: white;
+  border: none;
+  font-size: 22px;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.side-menu {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  padding: 12px 18px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 999;
+}
+
+.side-menu a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.side-menu.active {
+  display: flex;
+}
+
+/* CERCADOR */
+.search-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.search-container input {
+  padding: 10px;
+  width: 60%;
+  max-width: 300px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .perfil-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  h1 {
+    margin-top: 70px;
+  }
+
+  .search-container input {
+    width: 80%;
   }
 }
