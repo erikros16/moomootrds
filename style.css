@@ -6,13 +6,14 @@ body {
 
 h1 {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
+/* FOTO PERFIL PETITA */
 .perfil-icon {
   position: absolute;
-  top: 30px;
-  right: 100px;
+  top: 50px;
+  right: 45px;
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -20,6 +21,7 @@ h1 {
   border: 2px solid white;
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
   cursor: pointer;
+  z-index: 999;
 }
 
 .perfil-icon img {
@@ -28,12 +30,52 @@ h1 {
   object-fit: cover;
 }
 
+/* MENÚ HAMBURGUESA */
+.menu-toggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: white;
+  border: none;
+  font-size: 22px;
+  border-radius: 8px;
+  padding: 8px 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.side-menu {
+  position: absolute;
+  top: 55px;
+  left: 10px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  padding: 10px 15px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 998;
+}
+
+.side-menu.active {
+  display: flex;
+}
+
+.side-menu a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+/* CATEGORIES */
 .categories {
   display: flex;
   justify-content: center;
-  gap: 10px;
   flex-wrap: wrap;
-  margin: 30px 0 20px;
+  gap: 12px;
+  margin: 20px 0;
 }
 
 .dropdown {
@@ -48,30 +90,27 @@ h1 {
   font-weight: bold;
   cursor: pointer;
   color: white;
-  transition: background 0.5s;
+  transition: background 0.3s;
 }
 
 .dropdown-content {
-  display: flex;
-  flex-direction: column;
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
+  flex-direction: column;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  min-width: 140px;
+  min-width: 160px;
+  animation: desplegar 0.3s ease;
   overflow: hidden;
   z-index: 10;
-  transform: scaleY(0);
   transform-origin: top;
-  opacity: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .dropdown:hover .dropdown-content {
-  transform: scaleY(1);
-  opacity: 1;
+  display: flex;
 }
 
 .dropdown-content a {
@@ -85,14 +124,28 @@ h1 {
   background-color: #eee;
 }
 
-/* Colors grups */
+/* COLORS PER GRUP */
 .bts button { background-color: #f06292; }
 .twice button { background-color: #ba8de2; }
 .aespa button { background-color: #80deea; }
 .skz button { background-color: #ffe082; color: #333; }
 .others button { background-color: #aed581; color: #333; }
 
-/* Galeria */
+/* BUSCADOR */
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+  padding: 8px;
+  width: 60%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+/* GALERIA */
 .grid {
   display: flex;
   justify-content: center;
@@ -111,7 +164,13 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.2s ease;
 }
+
+.card:hover {
+  transform: scale(1.05); /* pots fer 1.05 per notar més l’efecte */
+}
+
 
 .card img {
   width: auto;
@@ -125,23 +184,31 @@ h1 {
   font-weight: bold;
 }
 
-/* Perfil */
+/* PERFIL */
 .perfil-container {
   text-align: center;
   padding: 30px;
 }
 
 .perfil-foto {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid white;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
 }
 
-.pujar-btn, .tornar-btn {
-  margin-top: 15px;
+.nom-usuari {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.pujar-btn,
+.tornar-btn {
+  margin: 10px;
   padding: 10px 20px;
   border: none;
   border-radius: 12px;
@@ -150,41 +217,14 @@ h1 {
   background-color: #ffb6c1;
 }
 
-/* Menú hamburguesa */
-.menu-toggle {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: white;
-  border: none;
-  font-size: 22px;
-  border-radius: 8px;
-  padding: 8px 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.side-menu {
-  position: absolute;
-  top: 50px;
-  left: 10px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  padding: 10px 15px;
-  display: none;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 999;
-}
-
-.side-menu.active {
-  display: flex;
-}
-
-.side-menu a {
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
+/* ANIMACIÓ PERSIANA */
+@keyframes desplegar {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }
